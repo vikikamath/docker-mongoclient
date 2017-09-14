@@ -2,8 +2,12 @@ pipeline {
   agent { 
     dockerfile true 
   }
-  stage('Mongo Client Test') {
-    sh ''
-    sh 'mongo -v'
+  stages {
+    stage('Mongo Client Test') {
+      steps {
+        sh ''
+        sh 'mongo -v'
+      }
+    }
   }
 }
