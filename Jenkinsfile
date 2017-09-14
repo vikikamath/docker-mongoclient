@@ -1,3 +1,4 @@
+/*
 pipeline {
   agent { 
     dockerfile true 
@@ -11,3 +12,16 @@ pipeline {
     }
   }
 }
+*/
+
+node {
+  stage('Mongo Client Test') {
+    docker.image('mongoclient/mongoclient').inside {
+
+      stage("Print Version") {
+        sh "mongo -version"
+      }
+    }
+  }
+}
+
